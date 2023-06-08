@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>chat-server</name>
     <description>chat-server</description>
+    <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -28,6 +29,20 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 移除嵌入式tomcat插件 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--        添加tomcat支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!--<scope>provided</scope>-->
         </dependency>
 
         <!--    WebSocket   -->
@@ -73,6 +88,16 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <!-- maven 打包时跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
