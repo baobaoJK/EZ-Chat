@@ -1,0 +1,256 @@
+@keyframes chat {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+// 聊天 页面样式
+.chat {
+  display: flex;
+  width: calc(100% - 64px);
+  height: calc(100% - 64px);
+  margin: 0;
+  padding: 32px;
+  background-image: linear-gradient(to right, #5FC3E4 0%, #E55D87 100%);
+  animation: chat 1s;
+
+  // 列表样式
+  .list-pane {
+    position: relative;
+    width: calc(20% - 48px);
+    height: calc(100% - 32px);
+    background-color: white;
+    border-radius: 16px;
+    margin-right: 16px;
+    padding: 16px;
+
+    // 用户数量样式
+    .user-count {
+      width: 100%;
+      height: 64px;
+      border-bottom: 2px solid;
+      border-image: linear-gradient(to right, #5FC3E4 0%, #E55D87 100%) 2 2 2 2;
+      margin-bottom: 16px;
+    }
+
+    // 用户面板样式
+    .user-pane {
+      width: 100%;
+      height: calc(100% - 40px);
+
+      // 用户列表样式
+      .user-list {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        height: calc(100% - 64px);
+        overflow: auto;
+
+        // 用户样式
+        .user {
+          display: flex;
+          align-items: center;
+          margin-bottom: 16px;
+
+          // 用户图片样式
+          .user-img {
+            width: 48px;
+            height: 48px;
+            border: pink solid 2px;
+            border-radius: 64px;
+          }
+
+          // 用户名样式
+          .username {
+            font-size: 24px;
+            margin: 0 0 0 16px;
+            padding: 0;
+          }
+        }
+      }
+
+      // 用户列表滚动条样式
+      .user-list::-webkit-scrollbar {
+        width: 8px;
+        border-right: 8px;
+      }
+      .user-list::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background: #E55D87;
+      }
+      .user-list::-webkit-scrollbar-track {
+        border-radius: 8px;
+        background: #f0f0f0;
+      }
+    }
+  }
+
+  // 聊天框样式
+  .chat-pane {
+    display: flex;
+    flex-direction: column;
+    width: calc(80% - 80px);
+    height: calc(100% - 64px);
+    background-color: white;
+    border-radius: 16px;
+    margin-left: 16px;
+    padding: 32px;
+
+    // 聊天室头部样式
+    .chat-header {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 16px);
+      height: 5%;
+      padding-left: 16px;
+      text-align: left;
+      border-bottom: 2px solid gray;
+      margin-bottom: 16px;
+
+      h2 {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    // 聊天室信息框样式
+    .chat-message {
+      width: calc(100% - 34px);
+      height: 80%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      background-color: #f5f6f7;
+      border: 1px solid #DCDFE6;
+      border-bottom: 0;
+      padding: 16px;
+      overflow: auto;
+
+      // 用户信息
+      .user-message {
+        display: flex;
+        width: 100%;
+        height: auto;
+        margin-bottom: 16px;
+
+        // 用户头像
+        .img {
+          width: 64px;
+          height: 64px;
+          margin-right: 16px;
+
+          .user-img {
+            width: 64px;
+            height: 64px;
+            margin-right: 16px;
+            border: 2px solid white;
+            border-radius: 8px;
+          }
+        }
+
+        // 用户信息
+        .message {
+          position: relative;
+
+          .username {
+            text-align: left;
+            margin-bottom: 8px;
+            height: 24px;
+
+            .time {
+              padding-left: 16px;
+              color: gray;
+            }
+          }
+
+          .text {
+            float: left;
+            text-align: left;
+            color: white;
+            background-color: #1E6EFF;
+            padding: 8px 16px;
+            border-radius: 0 4px 4px 4px;
+          }
+
+          .text::selection {
+            background: #3399FF;
+          }
+
+          .text::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: -4px;
+            border-top: 2px solid #1E6EFF;
+            border-right: 2px solid #1E6EFF;
+            border-bottom: 2px solid transparent;
+            border-left: 2px solid transparent;
+          }
+
+          .user-text {
+            color: black;
+            background-color: white
+          }
+
+          .user-text::selection {
+            color: white;
+          }
+
+          .user-text::before {
+            border-top: 2px solid white;
+            border-right: 2px solid white;
+          }
+        }
+      }
+    }
+
+    // 聊天室输入框样式
+    .chat-textarea {
+      position: relative;
+      width: 100%;
+      height: 15%;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background-color: #f5f6f7;
+
+      // 输入框样式
+      .user-textarea {
+        width: 100%;
+        height: 100%;
+
+        textarea {
+          width: 100%;
+          height: 100%;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          font-size: 24px;
+        }
+      }
+
+      // 发送按钮样式
+      .send-button {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 12px 24px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+
+    // 用户列表滚动条样式
+    .chat-message::-webkit-scrollbar,
+    textarea::-webkit-scrollbar {
+      width: 6px;
+      border-right: 8px;
+    }
+    .chat-message::-webkit-scrollbar-thumb,
+    textarea::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: #4b8aff;
+    }
+    .chat-message::-webkit-scrollbar-track,
+    textarea::-webkit-scrollbar-track {
+      border-radius: 8px;
+      background: #f0f0f0;
+    }
+  }
+}

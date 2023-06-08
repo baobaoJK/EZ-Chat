@@ -1,0 +1,65 @@
+@keyframes title {
+  0% { top: 100px; opacity: 0 }
+  100% { top: 0; opacity: 1 }
+}
+@keyframes input {
+  0% { top: 100px; opacity: 0}
+  50% { top: 100px; opacity: 0 }
+  100% { top: 0; opacity: 1 }
+}
+
+// 名称 样式
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, #5FC3E4 0%, #E55D87 100%);
+
+  // 名称输入盒子样式
+  .name-form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 128px;
+
+    // 标题样式
+    h1 {
+      position: relative;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      animation: title 1s;
+    }
+
+    .name-input {
+      position: relative;
+      top: 0;
+      animation: input 2s;
+
+      // 名称输入样式
+      .nickname {
+        width: 80%;
+        height: 36px;
+        margin: 0;
+
+        div {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+
+      // 按钮样式
+      .submit {
+        width: 20%;
+        height: 36px;
+        margin: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+  }
+}
